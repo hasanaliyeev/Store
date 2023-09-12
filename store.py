@@ -195,7 +195,7 @@ class PrintPage(Frame):
                     ]
                 )
                 headers.setStyle(TableStyle([('ALIGN', (1, 1), (-2, -2), 'RIGHT'),
-                                             ('BACKGROUND', (0, 0), (-1, -1), colors.palegreen),
+                                             ('BACKGROUND', (0, 0), (-1, -1), colors.tan),
                                              ('INNERGRID', (0, 0), (-1, -1), 0.25, colors.black),
                                              ('BOX', (0, 0), (-1, -1), 0.25, colors.black),
                                              ]))
