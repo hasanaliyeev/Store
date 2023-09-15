@@ -81,7 +81,8 @@ class PrintPage(Frame):
                         show_products()
                     else:
                         cursor.execute(
-                            '''SELECT code, title, unit, price, count FROM product WHERE title LIKE ?''', ("%" + title + "%",)
+                            '''SELECT code, title, unit, price, count FROM product WHERE title LIKE ?''',
+                            ("%" + title + "%",)
                         )
                         data = cursor.fetchall()
                         if data:
@@ -97,7 +98,8 @@ class PrintPage(Frame):
                         show_products()
                     else:
                         cursor.execute(
-                            '''SELECT code, title, unit, price, count FROM product WHERE code LIKE ?''', ("%" + title + "%",)
+                            '''SELECT code, title, unit, price, count FROM product WHERE code LIKE ?''',
+                            ("%" + title + "%",)
                         )
                         data = cursor.fetchall()
                         if data:
@@ -430,7 +432,8 @@ class SellingPage(Frame):
                         show_products()
                     else:
                         cursor.execute(
-                            '''SELECT code, title, unit, price, count FROM product WHERE title LIKE ?''', ("%" + title + "%",)
+                            '''SELECT code, title, unit, price, count FROM product WHERE title LIKE ?''',
+                            ("%" + title + "%",)
                         )
                         data = cursor.fetchall()
                         if data:
@@ -446,7 +449,8 @@ class SellingPage(Frame):
                         show_products()
                     else:
                         cursor.execute(
-                            '''SELECT code, title, unit, price, count FROM product WHERE code LIKE ?''', ("%" + title + "%",)
+                            '''SELECT code, title, unit, price, count FROM product WHERE code LIKE ?''',
+                            ("%" + title + "%",)
                         )
                         data = cursor.fetchall()
                         if data:
@@ -924,7 +928,8 @@ class StockPage(Frame):
                         show_products()
                     else:
                         cursor.execute(
-                            '''SELECT code, title, unit, price, count FROM product WHERE title LIKE ?''', ("%" + title + "%",)
+                            '''SELECT code, title, unit, price, count FROM product WHERE title LIKE ?''',
+                            ("%" + title + "%",)
                         )
                         data = cursor.fetchall()
                         if data:
@@ -944,7 +949,8 @@ class StockPage(Frame):
                         show_products()
                     else:
                         cursor.execute(
-                            '''SELECT code, title, unit, price, count FROM product WHERE code LIKE ?''', ("%" + title + "%",)
+                            '''SELECT code, title, unit, price, count FROM product WHERE code LIKE ?''',
+                            ("%" + title + "%",)
                         )
                         data = cursor.fetchall()
                         if data:
