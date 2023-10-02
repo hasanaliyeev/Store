@@ -16,7 +16,7 @@ from reportlab.lib.pagesizes import A4
 
 from tkinter import ttk
 from tkcalendar import DateEntry
-from babel import numbers
+
 
 
 def resource_path(relative_path):
@@ -658,14 +658,11 @@ class SellingPage(Frame):
 
         # TODO LEFT FRAME
         left_frame = Frame(self.root)
-        left_frame.pack(side=LEFT, fill=Y)
+        left_frame.pack(side=LEFT, fill=BOTH, expand=True)
         left_frame.pack_propagate(False)
-        left_frame.configure(width=800)
 
         search_frame = LabelFrame(left_frame, bd=1, padx=5, pady=5, relief=RIDGE)
         search_frame.pack(side=TOP, fill=X)
-        search_frame.pack_propagate(False)
-        search_frame.configure(height=50)
 
         search_entry = Entry(search_frame, width=25, font=('None', 15))
         search_entry.grid(row=0, column=0)
@@ -699,9 +696,7 @@ class SellingPage(Frame):
 
         # TODO PRODUCT TABLE FRAME
         product_table_frame = Frame(left_frame, relief=RIDGE, bd=1, padx=5, pady=5)
-        product_table_frame.pack(side=TOP, fill=X)
-        product_table_frame.pack_propagate(False)
-        product_table_frame.configure(width=800, height=800)
+        product_table_frame.pack(side=TOP, fill=BOTH, expand=True)
 
         product_table_sc_x = Scrollbar(product_table_frame, orient=HORIZONTAL)
         product_table_sc_x.pack(side=BOTTOM, fill=X)
@@ -732,51 +727,47 @@ class SellingPage(Frame):
         show_products()
 
         # TODO RIGHT FRAME
+        font_size = 10
+
         right_frame = Frame(self.root)
-        right_frame.pack(side=RIGHT, fill=Y)
+        right_frame.pack(side=RIGHT, fill=BOTH, expand=True)
         right_frame.pack_propagate(False)
-        right_frame.configure(width=800)
 
         cart_frame = Frame(right_frame, bd=1, padx=3, pady=3, relief=RIDGE)
-        cart_frame.pack(side=TOP, fill=X)
-        cart_frame.pack_propagate(False)
-        cart_frame.configure(height=150)
+        cart_frame.pack(side=TOP, fill=X, expand=True)
 
-        cart_label = LabelFrame(cart_frame, text='Добавление в корзину', font=('None', 13), fg='red')
+        cart_label = LabelFrame(cart_frame, text='Добавление в корзину', font=('None', font_size), fg='red')
         cart_label.pack(side=TOP, fill=X)
 
-        cart_code_label = Label(cart_label, font=('None', 13, 'bold'), text='Артикул', width=15)
+        cart_code_label = Label(cart_label, font=('None', font_size, 'bold'), text='Артикул')
         cart_code_label.grid(row=0, column=0)
-        cart_code_entry = Entry(cart_label, font=('None', 13), state='readonly', width=15)
+        cart_code_entry = Entry(cart_label, font=('None', font_size), state='readonly')
         cart_code_entry.grid(row=1, column=0)
 
-        cart_title_label = Label(cart_label, font=('None', 13, 'bold'), text='Товар')
+        cart_title_label = Label(cart_label, font=('None', font_size, 'bold'), text='Товар')
         cart_title_label.grid(row=0, column=1)
-        cart_title_entry = Entry(cart_label, font=('None', 13), state='readonly')
+        cart_title_entry = Entry(cart_label, font=('None', font_size), state='readonly')
         cart_title_entry.grid(row=1, column=1)
 
-        cart_price_label = Label(cart_label, font=('None', 13, 'bold'), text='Цена', width=15)
+        cart_price_label = Label(cart_label, font=('None', font_size, 'bold'), text='Цена')
         cart_price_label.grid(row=0, column=2)
-        cart_price_entry = Entry(cart_label, font=('None', 13), width=15)
+        cart_price_entry = Entry(cart_label, font=('None', font_size))
         cart_price_entry.grid(row=1, column=2)
 
-        cart_count_label = Label(cart_label, font=('None', 13, 'bold'), text='Количество', width=15)
+        cart_count_label = Label(cart_label, font=('None', font_size, 'bold'), text='Количество')
         cart_count_label.grid(row=0, column=3)
-        cart_count_entry = Entry(cart_label, font=('None', 13), width=15)
+        cart_count_entry = Entry(cart_label, font=('None', font_size))
         cart_count_entry.grid(row=1, column=3)
 
-        cart_adding_btn = Button(cart_label, text='Добавить корзину', font=('None', 13), command=add_to_cart,
+        cart_adding_btn = Button(cart_label, text='Добавить корзину', font=('None', font_size), command=add_to_cart,
                                  fg='black')
         cart_adding_btn.grid(row=2, column=3)
 
         for widget in cart_label.winfo_children():
             widget.grid_configure(padx=5, pady=5)
-
         # CART_TABLE_FRAME
         cart_table_frame = Frame(right_frame, relief=RIDGE, bd=1, padx=5, pady=5)
-        cart_table_frame.pack(side=TOP, fill='y')
-        cart_table_frame.pack_propagate(False)
-        cart_table_frame.configure(width=800, height=450)
+        cart_table_frame.pack(side=TOP, fill=BOTH, expand=True)
 
         cart_table_sc_x = Scrollbar(cart_table_frame, orient=HORIZONTAL)
         cart_table_sc_x.pack(side=BOTTOM, fill=X)
@@ -805,9 +796,7 @@ class SellingPage(Frame):
 
         # ORDER FRAME
         order_frame = Frame(right_frame, bd=1, padx=5, pady=5, relief=RIDGE)
-        order_frame.pack(side=TOP, fill=X)
-        order_frame.pack_propagate(False)
-        order_frame.configure(height=300)
+        order_frame.pack(side=TOP, fill=BOTH, expand=True)
 
         order_frame_label = LabelFrame(order_frame, text='Детали заказа', font=('None', 13), fg='red')
         order_frame_label.pack(side=TOP, fill=X)
@@ -1753,6 +1742,7 @@ class MainApp:
             page()
 
         self.root = root
+
         root.geometry('800x600')
         root.state('zoomed')
         root.iconbitmap(resource_path('assets/icon.ico'))
